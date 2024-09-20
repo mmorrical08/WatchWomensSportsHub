@@ -48,6 +48,8 @@ create table team (
     constraint fk_sport_team_id
         foreign key (sport_id)
         references sport(sport_id)
+        on delete cascade
+        on update cascade
 );
 
 create table athlete (

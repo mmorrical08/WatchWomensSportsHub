@@ -87,6 +87,13 @@ public class TeamJdbcRepository implements TeamRepository {
 
     @Override
     public boolean deleteById(int teamId) throws DataAccessException {
+        final String sql1 = "delete from favorite_team where team_id = ?";
+        jdbcTemplate.update(sql1, teamId);
+
+        final String sql2 = "update athlete set team_id = null where team_id = ?";
+        jdbcTemplate.update(sql2, teamId);
+
+
         final String sql = "delete from team where team_id = ?";
         return jdbcTemplate.update(sql, teamId) > 0;
     }

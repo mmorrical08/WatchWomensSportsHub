@@ -34,7 +34,7 @@ public class AthleteService {
 
     public Result<Athlete> add(Athlete athlete) throws DataAccessException {
         Result<Athlete> result = validate(athlete);
-        if (result.isSuccess()) {
+        if (!result.isSuccess()) {
             return result;
         }
 

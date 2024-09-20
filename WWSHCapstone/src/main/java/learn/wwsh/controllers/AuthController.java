@@ -4,6 +4,7 @@ import learn.wwsh.domain.Result;
 import learn.wwsh.models.AppUser;
 import learn.wwsh.security.AppUserService;
 import learn.wwsh.security.JwtConverter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
+@ConditionalOnWebApplication
 @RestController
 public class AuthController {
 
