@@ -1,5 +1,6 @@
 package learn.wwsh.domain;
 
+import learn.wwsh.models.Athlete;
 import learn.wwsh.models.Favorite;
 import learn.wwsh.models.Sport;
 import learn.wwsh.models.Team;
@@ -22,6 +23,31 @@ public class MockData {
         team.setDefaultLogo("storm.png");
         team.setDarkLogo("storm-dark.png");
         return team;
+    }
+    public static Athlete makeAthlete() {
+        Athlete athlete = new Athlete();
+        athlete.setAthleteId(1);
+        athlete.setTeamId(1);
+        athlete.setFirstName("First 1");
+        athlete.setLastName("Last 1");
+        athlete.setHeight(72);
+        athlete.setDisplayHeight(6);
+        athlete.setHeadshot("headshot1.jpg");
+        athlete.setJersey(1);
+        athlete.setPositionName("Position 1");
+        athlete.setExperienceYear("Year 1");
+
+        return athlete;
+    }
+    public static Athlete makeAthlete2(){
+        Athlete athlete = makeAthlete();
+        athlete.setAthleteId(2);
+        athlete.setFirstName("First 2");
+        athlete.setLastName("Last 2");
+        athlete.setJersey(2);
+        athlete.setHeadshot("headshot2.jpg");
+
+        return athlete;
     }
     public static Favorite makeFavoriteTeam() {
         Favorite favorite = new Favorite();

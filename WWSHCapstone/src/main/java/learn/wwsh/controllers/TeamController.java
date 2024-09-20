@@ -3,10 +3,7 @@ package learn.wwsh.controllers;
 import learn.wwsh.data.DataAccessException;
 import learn.wwsh.domain.TeamService;
 import learn.wwsh.models.Team;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -45,7 +42,7 @@ public class TeamController {
         return service.add(team);
     }
 
-    @PostMapping("/delete/{teamId}")
+    @DeleteMapping("/delete/{teamId}")
     public boolean deleteById(int teamId) throws DataAccessException {
         return service.deleteById(teamId);
     }

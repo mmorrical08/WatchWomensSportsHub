@@ -1,58 +1,36 @@
 package learn.wwsh.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Result<T> {
+    private ActionStatus status = ActionStatus.SUCCESS;
+    private ArrayList<String> messages = new ArrayList<>();
     private T payload;
-    private boolean success = true;
-    private String message;
 
-    public Result() {
-    }
-
-    public Result(T payload) {
-        this.payload = payload;
-    }
-
-    public Result(String message) {
-        this.success = false;
-        this.message = message;
+    public ActionStatus getStatus() {
+        return status;
     }
 
     public T getPayload() {
         return payload;
     }
 
+    public List<String> getMessages() {
+        return new ArrayList<>(messages);
+    }
+
     public void setPayload(T payload) {
         this.payload = payload;
     }
 
+    public void addMessage(ActionStatus status, String message) {
+        this.status = status;
+        messages.add(message);
+    }
+
     public boolean isSuccess() {
-        return success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Result<?> result = (Result<?>) o;
-        return success == result.success && Objects.equals(payload, result.payload) && Objects.equals(message, result.message);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(payload, success, message);
+        return messages.size() == 0;
     }
 }
