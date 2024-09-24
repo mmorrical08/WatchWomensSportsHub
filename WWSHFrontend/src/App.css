@@ -1,0 +1,118 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+form{
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  margin: 1%;
+  padding: 1%;
+}
+.form-label {
+  display: block;
+  margin: 2em 0;
+  text-align: left;
+}
+.logo {
+  height: 20em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.card {
+  padding: 2em;
+  margin: 1em;
+}
+
+.card.button:hover {
+  box-shadow: 0 0 3em #646cffaa;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.bold-italic {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.home{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home:hover {
+  filter: drop-shadow(0 0 6em #ff8000);
+
+}
+.sign-in-button{
+  .sign-in-button {
+    padding: 0.5em 1em;
+    margin: 0.5em;
+    border: 1px solid #646cff;
+    border-radius: 0.5em;
+    background-color: #ffffff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 300ms ease;
+  }
+
+  border-radius: 0.5em;
+  background-color: #ffffff;
+
+  font-size: 1em;
+  cursor: pointer;
+  /* transition: background-color 300ms ease; */
+  :hover {
+    box-shadow: 0 0 3em #5fff3faa;
+  }
+}
+.btn.button {
+  padding: 1em 2em;
+  margin: 1em;
+  border: none;
+  border-radius: 0.5em;
+  background-color: #646cff;
+  color: #ffffff;
+  font-size: 1em;
+  cursor: pointer;
+  /* transition: background-color 300ms ease; */
+  :hover {
+    background-color: #ff8000;
+    box-shadow: 0 0 3em #5fff3faa;
+  }
+}
+.btn.btn-purple {
+  background-color: #646cff;
+  color: #ffffff;
+}
+.btn.btn-purple:hover {
+  color: #ffffff;
+  background-color: #5258c9;
+}
+.heart-button {
+  padding: 0.3em 0.5em;
+  color: rgb(255, 134, 154);
+  margin: 0.2em;
+  border: 2px solid rgb(255, 134, 154);
+  border-radius: 0.3em;
+  background-color: #ffffff;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 300ms ease, box-shadow 300ms ease;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.heart-button:hover {
+  background-color:  rgb(255, 134, 154);
+  color: #ffffff;
+}

@@ -33,8 +33,8 @@ public class SecurityConfig {
         // Configure authorization rules
         http.authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/authenticate").permitAll()
-                .requestMatchers("/refresh_token").authenticated()
-                .requestMatchers("/create_account").permitAll()
+                .requestMatchers(HttpMethod.POST,"/refresh-token").authenticated()
+                .requestMatchers(HttpMethod.POST, "/create-account").permitAll()
                 .requestMatchers(HttpMethod.GET, "/sport", "/sport/*").permitAll()
                 .requestMatchers(HttpMethod.GET, "/team", "/team/*",
                         "/athlete", "/athlete/*"

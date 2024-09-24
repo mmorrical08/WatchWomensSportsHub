@@ -1,0 +1,12 @@
+### This works
+GET http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams HTTP/1.1
+ 
+### This works
+ 
+GET http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams/20 HTTP/1.1
+ 
+### This doesn't work
+ 
+GET http://site.api.espn.com/apis/site/v2/sports/basketball/wbb/teams HTTP/1.1
+
+ 

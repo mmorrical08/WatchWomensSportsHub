@@ -60,7 +60,7 @@ public class AuthController {
         return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
-    @PostMapping("/refresh_token")
+    @PostMapping("/refresh-token")
     public ResponseEntity<Map<String, String>> refreshToken(@AuthenticationPrincipal AppUser appUser) {
         String jwtToken = converter.getTokenFromUser(appUser);
 
@@ -70,7 +70,7 @@ public class AuthController {
         return new ResponseEntity<>(map, HttpStatus.OK);
     }
 
-    @PostMapping("/create_account")
+    @PostMapping("/create-account")
     public ResponseEntity<?> createAccount(@RequestBody Map<String, String> credentials) {
 
         String username = credentials.get("username");
