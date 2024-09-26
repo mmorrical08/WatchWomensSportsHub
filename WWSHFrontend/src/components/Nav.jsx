@@ -4,11 +4,13 @@ import { AuthContext } from "../AppProvider";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
+
+
 export default function Nav() {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
 
     function handleSignOut() {
-        logOut();
+        logout();
     }
 
     return (
@@ -32,23 +34,25 @@ export default function Nav() {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/team" >Teams</NavLink>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <NavLink className="nav-link" to="/athlete" >Athletes</NavLink>
+                        </li> */}
+                        {user && <li className="nav-item">
+                            <NavLink className="nav-link" to="/favorites" >My Hub</NavLink>
                         </li>
-                        <div className="d-flex align-items-center justify-content-center">
-                            {user ?
-                                <>
-                                    <li className="nav-item">
-                                        <NavLink className="nav-link active" to="/favorites" >My Hub</NavLink>
-                                    </li>
-                                    <span className="me-2">{user.username}</span>
-                                    <button className="btn btn-danger" onClick={handleSignOut}>Sign Out</button>
-                                </>
-                                :
-                                <NavLink className="btn btn-purple" to="/authenticate">Sign In</NavLink>
-                            }
-                        </div>
+                        }
                     </ul>
+                    <div className="d-flex flex-column flex-lg-row align-items-center ms-lg-auto justify-content-center text-center text-lg-start">
+
+                        {user ? (
+                            <div className="">
+                                
+                                <button className="btn btn-danger mt-2 mt-lg-0" onClick={handleSignOut}>Sign Out</button>
+                            </div>
+                        ) : (
+                            <NavLink className="btn btn-purple ms-lg-auto" to="/authenticate">Sign In</NavLink>
+                        )}
+                    </div>
                 </div>
             </div>
         </nav>

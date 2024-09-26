@@ -1,6 +1,6 @@
 export async function find(url, key, value) {
     if (key) {
-        url += `?${key}=${value}`;
+        url += `${key}${value}`;
     }
     const response = await fetch(url);
     if (response.ok) {

@@ -46,6 +46,7 @@ public class FavoriteJdbcTemplateRepository implements FavoriteRepository {
             return addAthlete(favorite);
         }
     }
+
     public Favorite addTeam(Favorite favorite) throws DataAccessException {
         final String sql = "insert into favorite_team (app_user_id, team_id) "
                 + "values (?, ?);";

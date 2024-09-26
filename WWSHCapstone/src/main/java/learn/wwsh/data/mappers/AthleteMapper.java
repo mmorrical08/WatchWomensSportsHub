@@ -12,7 +12,7 @@ public class AthleteMapper implements RowMapper<Athlete> {
         athlete.setFirstName(resultSet.getString("first_name"));
         athlete.setLastName(resultSet.getString("last_name"));
         athlete.setHeight(resultSet.getInt("height"));
-        athlete.setDisplayHeight(resultSet.getInt("display_height"));
+        athlete.setDisplayHeight(resultSet.getString("display_height"));
         athlete.setHeadshot(resultSet.getString("headshot"));
         athlete.setJersey(resultSet.getInt("jersey"));
         athlete.setPositionName(resultSet.getString("position_name"));

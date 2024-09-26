@@ -33,12 +33,12 @@ public class TeamController {
     }
 
     @GetMapping("/id/{teamId}")
-    public Team findById(int teamId) throws DataAccessException {
+    public Team findById(@PathVariable int teamId) throws DataAccessException {
         return service.findById(teamId);
     }
 
     @PostMapping("/add")
-    public Team add(Team team) throws DataAccessException {
+    public Team add(@RequestBody Team team) throws DataAccessException {
         return service.add(team);
     }
 

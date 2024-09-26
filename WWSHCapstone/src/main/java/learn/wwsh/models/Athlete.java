@@ -6,7 +6,7 @@ public class Athlete {
     private String firstName;
     private String lastName;
     private int height;
-    private int displayHeight;
+    private String displayHeight;
     private String headshot;
     private int jersey;
     private String positionName;
@@ -52,11 +52,11 @@ public class Athlete {
         this.height = height;
     }
 
-    public int getDisplayHeight() {
+    public String getDisplayHeight() {
         return displayHeight;
     }
 
-    public void setDisplayHeight(int displayHeight) {
+    public void setDisplayHeight(String displayHeight) {
         this.displayHeight = displayHeight;
     }
 

@@ -38,10 +38,6 @@ public class AthleteService {
             return result;
         }
 
-        if (athlete.getAthleteId() != 0) {
-            result.addMessage(ActionStatus.INVALID, "athleteId cannot be set for `add` operation.");
-            return result;
-        }
 
         athlete = repository.add(athlete);
         result.setPayload(athlete);

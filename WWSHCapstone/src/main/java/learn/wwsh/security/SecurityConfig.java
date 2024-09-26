@@ -42,11 +42,10 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/api/favorites/*").hasAnyAuthority( "USER")
                 .requestMatchers(HttpMethod.POST, "/api/favorites/*").hasAnyAuthority("USER")
                 .requestMatchers(HttpMethod.DELETE, "/api/favorites/*").hasAnyAuthority("USER")
-                .requestMatchers(HttpMethod.POST, "/athlete/add",
-                        "/team/add").hasAnyAuthority("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/athlete/add", "/team/add").hasAnyAuthority("USER")
                 .requestMatchers(HttpMethod.PUT, "/team/*", "/athlete/*").hasAnyAuthority( "ADMIN")
                 .requestMatchers(HttpMethod.DELETE, "/team/*", "/athlete/*").hasAnyAuthority("ADMIN")
-                .requestMatchers("/**").denyAll()
+                .requestMatchers("/**").permitAll()
         );
 
         // Add JWT filter

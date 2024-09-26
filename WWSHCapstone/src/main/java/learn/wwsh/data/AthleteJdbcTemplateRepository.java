@@ -74,10 +74,10 @@ public class AthleteJdbcTemplateRepository implements AthleteRepository{
     public Athlete add(Athlete athlete) {
 
         SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate)
-                .withTableName("athlete")
-                .usingGeneratedKeyColumns("athlete_id");
+                .withTableName("athlete");
 
         Map<String, Object> fields = Map.of(
+                "athlete_id", athlete.getAthleteId(),
                 "team_id", athlete.getTeamId(),
                 "first_name", athlete.getFirstName(),
                 "last_name", athlete.getLastName(),
@@ -89,8 +89,7 @@ public class AthleteJdbcTemplateRepository implements AthleteRepository{
                 "experience_year", athlete.getExperienceYear()
         );
 
-        int id = insert.executeAndReturnKey(fields).intValue();
-        athlete.setAthleteId(id);
+        insert.execute(fields);
         return athlete;
     }
 

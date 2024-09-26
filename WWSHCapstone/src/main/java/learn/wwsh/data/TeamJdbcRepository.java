@@ -67,10 +67,26 @@ public class TeamJdbcRepository implements TeamRepository {
             return null;
         }
 
+        // First, check if the team already exists by its name, city, and sport_id.
+        final String selectSql = "SELECT team_id FROM team WHERE name = ? AND city = ? AND sport_id = ?";
+
+        List<Integer> existingTeamIds = jdbcTemplate.query(selectSql, (rs, rowNum) -> rs.getInt("team_id"),
+                team.getTeamName(), team.getCity(), team.getSportId());
+
+        if (!existingTeamIds.isEmpty()) {
+            // If the team exists, return the existing team with its ID
+            team.setTeamId(existingTeamIds.get(0));
+            return team;
+        }
+
+        // If the team doesn't exist, insert the new team
+        final String insertSql = "INSERT INTO team (sport_id, name, city, state, default_logo, dark_logo) " +
+                "VALUES (?, ?, ?, ?, ?, ?)";
         SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate)
-                .withTableName("team")
-                .usingGeneratedKeyColumns("team_id");
-        Map<String, Object> args = Map.of(
+                .withTableName("team");
+
+        Map<String, Object> fields = Map.of(
+                "team_id", team.getTeamId(),
                 "sport_id", team.getSportId(),
                 "name", team.getTeamName(),
                 "city", team.getCity(),
@@ -79,11 +95,12 @@ public class TeamJdbcRepository implements TeamRepository {
                 "dark_logo", team.getDarkLogo()
         );
 
-        int teamId = insert.executeAndReturnKey(args).intValue();
-        Team result = new Team(team);
-        result.setTeamId(teamId);
-        return result;
+        insert.execute(fields);
+
+        return team;
     }
+
+
 
     @Override
     public boolean deleteById(int teamId) throws DataAccessException {
